@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Типы дефектов')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <div class="page-head">
+        <h1>Типы дефектов</h1>
+        <a class="button primary" th:href="@{/types/new}">Добавить тип</a>
+    </div>
+
+    <p class="error" th:if="${error}" th:text="${error}"></p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+            <tr>
+                <th>Код</th>
+                <th>Название</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="t : ${types}">
+                <td><span class="code" th:text="${t.code}"></span></td>
+                <td th:text="${t.name}"></td>
+                <td class="actions">
+                    <a class="button" th:href="@{/types/{code}/edit(code=${t.code})}">Изменить</a>
+                    <form method="post" th:action="@{/types/{code}/delete(code=${t.code})}"
+                          onsubmit="return confirm('Удалить тип?');">
+                        <button type="submit" class="button danger">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(types)}">
+                <td colspan="3" class="empty">Типов пока нет.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>

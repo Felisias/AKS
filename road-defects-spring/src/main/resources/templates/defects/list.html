@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Дефекты')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <div class="page-head">
+        <h1>Дефекты</h1>
+        <a class="button primary" th:href="@{/defects/new}">Добавить дефект</a>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Тип</th>
+                <th>Широта</th>
+                <th>Долгота</th>
+                <th>Дата и время</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="d : ${defects}">
+                <td th:text="${d.id}"></td>
+                <td><span class="code" th:text="${d.typeCode}"></span> <span th:text="${d.typeName}"></span></td>
+                <td th:text="${d.latitude}"></td>
+                <td th:text="${d.longitude}"></td>
+                <td th:text="${#temporals.format(d.detectedAt, 'dd.MM.yyyy HH:mm:ss')}"></td>
+                <td class="actions">
+                    <a class="button" th:href="@{/defects/{id}/edit(id=${d.id})}">Изменить</a>
+                    <form method="post" th:action="@{/defects/{id}/delete(id=${d.id})}"
+                          onsubmit="return confirm('Удалить дефект?');">
+                        <button type="submit" class="button danger">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(defects)}">
+                <td colspan="6" class="empty">Дефектов пока нет.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Дефект')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <h1 th:text="${form.id == null} ? 'Новый дефект' : 'Дефект, id ' + ${form.id}"></h1>
+
+    <p class="error" th:if="${error}" th:text="${error}"></p>
+
+    <form method="post" th:action="@{/defects/save}" th:object="${form}" class="form">
+        <input type="hidden" th:field="*{id}">
+
+        <label for="typeCode">Тип дефекта</label>
+        <select th:field="*{typeCode}" required>
+            <option th:each="t : ${types}" th:value="${t.code}" th:text="${t.code + ' (' + t.name + ')'}"></option>
+        </select>
+        <span class="field-error" th:if="${#fields.hasErrors('typeCode')}" th:errors="*{typeCode}"></span>
+
+        <label for="latitude">Широта</label>
+        <input type="number" step="any" min="-90" max="90" th:field="*{latitude}" placeholder="55.751244" required>
+        <span class="field-error" th:if="${#fields.hasErrors('latitude')}" th:errors="*{latitude}"></span>
+
+        <label for="longitude">Долгота</label>
+        <input type="number" step="any" min="-180" max="180" th:field="*{longitude}" placeholder="37.618423" required>
+        <span class="field-error" th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}"></span>
+
+        <label for="detectedAt">Дата и время обнаружения</label>
+        <input type="datetime-local" step="1" th:field="*{detectedAt}" required>
+        <span class="field-error" th:if="${#fields.hasErrors('detectedAt')}" th:errors="*{detectedAt}"></span>
+
+        <div class="form-buttons">
+            <button type="submit" class="button primary">Сохранить</button>
+            <a class="button" th:href="@{/defects}">Отмена</a>
+        </div>
+    </form>
+</main>
+</body>
+</html>

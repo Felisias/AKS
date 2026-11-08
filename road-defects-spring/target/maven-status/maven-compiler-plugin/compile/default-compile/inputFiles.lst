@@ -1,0 +1,14 @@
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\dto\DefectDto.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\dto\DefectForm.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\dto\DefectTypeDto.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\entity\Defect.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\entity\DefectType.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\repository\DefectRepository.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\repository\DefectTypeRepository.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\RoadDefectsApplication.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\service\BusinessException.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\service\DefectService.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\service\DefectTypeService.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\web\DefectController.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\web\DefectTypeController.java
+C:\Users\Никита\Downloads\road-defects-spring\road-defects-spring\src\main\java\com\roaddefects\web\HomeController.java

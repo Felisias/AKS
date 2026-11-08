@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Тип дефекта')}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <h1 th:text="${isNew} ? 'Новый тип дефекта' : 'Изменение типа дефекта'"></h1>
+
+    <p class="error" th:if="${error}" th:text="${error}"></p>
+
+    <form method="post" th:action="${isNew} ? @{/types/create} : @{/types/update}" th:object="${form}" class="form">
+        <label for="code">Код</label>
+        <input type="text" maxlength="10" th:field="*{code}" th:readonly="${!isNew}" placeholder="d50" required>
+        <span class="field-error" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></span>
+
+        <label for="name">Название</label>
+        <input type="text" maxlength="100" th:field="*{name}" required>
+        <span class="field-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
+        <div class="form-buttons">
+            <button type="submit" class="button primary">Сохранить</button>
+            <a class="button" th:href="@{/types}">Отмена</a>
+        </div>
+    </form>
+</main>
+</body>
+</html>

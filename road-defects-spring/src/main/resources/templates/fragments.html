@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title}">Дефекты</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+<header class="topbar" th:fragment="header">
+    <div class="topbar-inner">
+        <span class="brand">Дефекты дорожного покрытия</span>
+        <nav>
+            <a th:href="@{/defects}">Дефекты</a>
+            <a th:href="@{/types}">Типы дефектов</a>
+        </nav>
+    </div>
+</header>
+</body>
+</html>
